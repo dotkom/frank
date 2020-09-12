@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    align-items: center;
+}
+.svg {
+    display: grid;
+    justify-self: center;
+}
+
+.circle {
+    animation: progress 4s ease-out backwards;
+}
+
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 50;
+      stroke: #0D5474;
+    }   
+  }
