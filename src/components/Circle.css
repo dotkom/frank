@@ -7,13 +7,12 @@
     justify-self: center;
 }
 
-.circle {
-    animation: progress 4s ease-out backwards;
+.circle[click='1'] {
+    animation: progress 1s ease-out backwards;
 }
 
 @keyframes progress {
     0% {
-      stroke-dasharray: 0 50;
-      stroke: #0D5474;
+      stroke-dasharray: 0 700;
     }   
   }
