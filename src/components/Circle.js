@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Circle.css";
-import {width, pathData, number_people} from '../constants/circlePoints'
+import { width, pathData, number_people } from "../constants/circlePoints";
 
-export default function Circle() {
-  const [user, setUser] = useState([]);
+export default function Circle({ props: { first_name, last_name } }) {
   const [click, setClick] = useState(0);
-  const [progress, setProgress] = useState(0)
-  useEffect(() => {
-    fetch("https://online.ntnu.no/api/v1/users/?rfid=0260434848")
-      .then((res) => res.json())
-      .then((res) => setUser(res.results[0]));
-  }, []);
-
-
-  console.log(click);
+  const [progress, setProgress] = useState(0);
 
   return (
     <div className="container">
@@ -31,18 +22,15 @@ export default function Circle() {
           stroke="#0D5474"
           strokeWidth="20"
           strokeDasharray={number_people[progress]}
-          onClick={() => {setClick(1); setProgress(progress +1);}}
+          onClick={() => {
+            setClick(1);
+            setProgress(progress + 1);
+          }}
           onAnimationEnd={() => setClick(0)}
           click={click}
         ></path>
-        <text
-          className="text"
-          x="50%"
-          y="50%"
-          fill="white"
-          textAnchor="middle"
-        >
-          {user.first_name} {user.last_name}
+        <text className="text" x="50%" y="50%" fill="white" textAnchor="middle">
+          { first_name }
         </text>
       </svg>
     </div>

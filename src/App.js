@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import Circle from './components/Circle';
+import List from './components/List';
 
 function App() {
   return (
     <div className="App">
-      <Circle />
+      <List />
     </div>
   );
 }
