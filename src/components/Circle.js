@@ -30,7 +30,7 @@ export default function Circle({ props: { first_name, last_name } }) {
           click={click}
         ></path>
         <text className="text" x="50%" y="50%" fill="white" textAnchor="middle">
-          { first_name }
+          { first_name } {last_name}
         </text>
       </svg>
     </div>
