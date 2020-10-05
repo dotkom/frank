@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    align-items: center;
+}
+.svg {
+    display: grid;
+    justify-self: center;
+}
+
+.circle[click='1'] {
+    animation: progress 1s ease-out backwards;
+}
+
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 700;
+    }   
+  }
