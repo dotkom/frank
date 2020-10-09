@@ -1,4 +1,6 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
+import 'firebase/storage'
 
 var firebaseConfig = {
     apiKey: "AIzaSyAKkB7z3C-wHboNqyM-0P4HfZ9H8m7pYcQ",
@@ -12,10 +14,11 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
-function writeUserData(id, first_name, last_name) {
-    firebase.database().ref("users/" + id).set({
+function writeUserData(date, time, id, first_name, last_name, time_start) {
+    firebase.database().ref("users/" + time + " " + date).set({
+    date: date,
+    time: time,
     id: id,
     first_name: first_name,
     last_name: last_name,
