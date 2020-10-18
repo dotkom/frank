@@ -29,7 +29,7 @@ export default function Circle({ props: peopleInside }) {
           onAnimationEnd={() => setClick(0)}
           click={click}
         ></path>
-        <text className="text" x="50%" y="50%" fill="white" textAnchor="middle">
+        <text className="text" x="50%" y="52.5%" fill="white" textAnchor="middle">
           {peopleInside} / 12
         </text>
       </svg>

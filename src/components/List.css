@@ -1,0 +1,49 @@
+.main{
+    display: grid;
+    grid-template-columns: 20vw auto 20vw;
+    grid-template-rows: 60vh auto;
+}
+
+.circle {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.list-of-people{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row: 2;
+}
+.form form{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: grid;
+}
+.arrow{
+    align-self: center;
+    justify-self: center;
+    width: 6vmin;
+	height: 6vmin;
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.true {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.false {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}

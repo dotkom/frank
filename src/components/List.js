@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Circle from "./Circle";
 import writeUserData from "./Firebase";
+import "./List.css";
 
 function List() {
+  const [component, setComponent] = useState(true);
   const [rfid, setRfid] = useState("0260434848");
   const [peopleInside, setPeopleInside] = useState([]);
+  const [person, setPerson] = useState({
+    first_name: "",
+    last_name: "",
+    phonenumber: "",
+    email: "",
+  });
 
   const today = new Date();
   const year = today.getFullYear();
@@ -24,7 +32,6 @@ function List() {
       .then((res) => res.json())
       .then((res) => {
         setPeopleInside((peopleInside) => [...peopleInside, res.results[0]]);
-        console.log(peopleInside);
         writeUserData(
           `${day}-${month}-${year}`,
           `${hour}:${min}:${sec}`,
@@ -34,20 +41,52 @@ function List() {
         );
       });
   }, [rfid]);
-  console.log(peopleInside)
+
+  const updatePerson = (e) => {
+    setPerson({ ...person, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div>
-      {peopleInside.length > 0 ? (
-        <div>
-          <Circle props={peopleInside.length} />
+    <div className="main">
+      {component ? (
+        <div className="circle">
+          {peopleInside.length > 0 ? (
+            <div>
+              <Circle props={peopleInside.length} />
+            </div>
+          ) : null}
+          <div className="list-of-people">
+            {peopleInside.map((index, person) => (
+              <div key={person + index}>
+                {peopleInside[person].first_name}{" "}
+                {peopleInside[person].last_name}
+              </div>
+            ))}
+          </div>
         </div>
-      ) : null}
-      {peopleInside.map((index, person) => (
-        <div key={person + index}>
-          {peopleInside[person].first_name} {peopleInside[person].last_name}
-          {console.log(person)}
+      ) : (
+        <div className="form">
+          <form>
+            <label>Navn</label>
+            <input
+              onChange={updatePerson}
+              name="first_name"
+              type="text"
+            ></input>
+            <label>Etternavn</label>
+            <input onChange={updatePerson} name="last_name" type="text"></input>
+            <label>Telefonnummer</label>
+            <input
+              onChange={updatePerson}
+              name="phonenumber"
+              type="number"
+            ></input>
+            <label>E-post</label>
+            <input onChange={updatePerson} name="email" type="email"></input>
+          </form>
         </div>
-      ))}
+      )}
+      <div className={`arrow ${component}`}  onClick={() => setComponent(!component)} />
     </div>
   );
 }
