@@ -16,7 +16,7 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
 function writeUserData(date, time, id, first_name, last_name, time_start) {
-    firebase.database().ref("users/" + time + " " + date).set({
+    firebase.database().ref(`${date}/` + time + " " + first_name + " " + last_name).set({
     date: date,
     time: time,
     id: id,
