@@ -2,6 +2,10 @@
     display: grid;
     align-items: center;
 }
+
+text{
+    font-size: 200%;
+}
 .svg {
     display: grid;
     justify-self: center;
