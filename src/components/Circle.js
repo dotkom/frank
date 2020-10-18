@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Circle.css";
 import { width, pathData, number_people } from "../constants/circlePoints";
 
-export default function Circle({ props: { first_name, last_name } }) {
+export default function Circle({ props: peopleInside }) {
   const [click, setClick] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(peopleInside);
 
   return (
     <div className="container">
@@ -24,13 +24,13 @@ export default function Circle({ props: { first_name, last_name } }) {
           strokeDasharray={number_people[progress]}
           onClick={() => {
             setClick(1);
-            setProgress(progress + 1);
+            setProgress(progress);
           }}
           onAnimationEnd={() => setClick(0)}
           click={click}
         ></path>
         <text className="text" x="50%" y="50%" fill="white" textAnchor="middle">
-          { first_name } {last_name}
+          {peopleInside} / 12
         </text>
       </svg>
     </div>
