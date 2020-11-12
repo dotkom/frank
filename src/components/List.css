@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 20vw auto 20vw;
     grid-template-rows: 60vh auto;
+    background-color: #262424;
 }
 
 .circle {
