@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Circle from "./Circle";
 import writeUserData from "./Firebase";
 import "./List.css";
+import { TextField } from "@dotkomonline/design-system";
 
 function List() {
   const [component, setComponent] = useState(true);
@@ -68,25 +69,31 @@ function List() {
         <div className="form">
           <form>
             <label>Navn</label>
-            <input
-              onChange={updatePerson}
-              name="first_name"
-              type="text"
-            ></input>
+            <TextField type="text"></TextField>
             <label>Etternavn</label>
-            <input onChange={updatePerson} name="last_name" type="text"></input>
+            <TextField type="text"></TextField>
             <label>Telefonnummer</label>
-            <input
+            <TextField
               onChange={updatePerson}
               name="phonenumber"
               type="number"
-            ></input>
+              required
+            ></TextField>
             <label>E-post</label>
-            <input onChange={updatePerson} name="email" type="email"></input>
+            <TextField
+              onChange={updatePerson}
+              name="email"
+              type="email"
+              errorMEssage="Not and email"
+              required
+            ></TextField>
           </form>
         </div>
       )}
-      <div className={`arrow ${component}`}  onClick={() => setComponent(!component)} />
+      <div
+        className={`arrow ${component}`}
+        onClick={() => setComponent(!component)}
+      />
     </div>
   );
 }
