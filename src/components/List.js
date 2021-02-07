@@ -76,16 +76,17 @@ function List() {
             <TextField
               onChange={updatePerson}
               name="phonenumber"
+              value={person.phonenumber}
               type="number"
-              required
             ></TextField>
             <label>E-post</label>
             <TextField
               onChange={updatePerson}
               name="email"
+              value={person.email}
               type="email"
+              pattern=".+@.+"
               errorMEssage="Not and email"
-              required
             ></TextField>
           </form>
         </div>
